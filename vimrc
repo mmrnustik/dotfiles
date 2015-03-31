@@ -57,8 +57,8 @@ let mapleader = '\'
 " Bind nohl
 " Removes highlight of your last search
 " ``<C>`` stands for ``CTRL`` and therefore ``<C-n>`` stands for ``CTRL+n``
-"noremap <C-n> :nohl<CR>
-"vnoremap <C-n> :nohl<CR>
+noremap <Leader>h :nohl<CR>
+vnoremap <Leader>h :nohl<CR>
 
 
 " <F2> removes trailing whitespaces and saves file
@@ -165,7 +165,8 @@ set laststatus=2
 " Toogle comments
 
 " map <C-_> NERDComToggleComment
-map <C-_> <leader>c<space>gv
+vmap <C-_> <leader>c<space>gv
+nmap <C-_> <leader>c<space>
 
 " Settings for ctrlp
 let g:ctrlp_max_height = 30
