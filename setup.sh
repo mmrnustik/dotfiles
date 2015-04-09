@@ -14,6 +14,8 @@ link () {
 }
 
 link vimrc .vimrc
+link bashrc .bashrc
+link bash_aliases .bash_aliases
 link tmux.conf .tmux.conf
 link flake8 .config/flake8
 
