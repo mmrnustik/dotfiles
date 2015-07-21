@@ -8,6 +8,7 @@ set encoding=utf-8
 
 set nocompatible
 filetype off
+
 set rtp+=~/.vim/bundle/Vundle.vim
 " call vundle#rc()
 call vundle#begin()
@@ -26,7 +27,9 @@ Plugin 'scrooloose/syntastic'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'ledger/vim-ledger'
-Plugin 'vundle'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+"Plugin 'vundle'
 call vundle#end()
 
 
@@ -211,6 +214,7 @@ let g:syntastic_error_symbol = "X"
 let g:syntastic_style_error_symbol = ">"
 let g:syntastic_warning_symbol = "!"
 let g:syntastic_style_warning_symbol = ">"
+let g:syntastic_python_checkers=['flake8']
 
 " Completion
 " Disable jedi (You Complete Me uses jedi)
