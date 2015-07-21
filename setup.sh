@@ -15,4 +15,5 @@ link () {
 
 link vimrc .vimrc
 link tmux.conf .tmux.conf
+link flake8 .config/flake8
 

@@ -3,6 +3,9 @@
 "
 " Vundle plugins
 "
+scriptencoding utf-8
+set encoding=utf-8
+
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -28,7 +31,6 @@ call vundle#end()
 
 
 filetype plugin indent on
-
 
 
 " Automatic reloading of .vimrc
@@ -57,8 +59,8 @@ let mapleader = '\'
 " Bind nohl
 " Removes highlight of your last search
 " ``<C>`` stands for ``CTRL`` and therefore ``<C-n>`` stands for ``CTRL+n``
-"noremap <C-n> :nohl<CR>
-"vnoremap <C-n> :nohl<CR>
+noremap <Leader>h :nohl<CR>
+vnoremap <Leader>h :nohl<CR>
 
 
 " <F2> removes trailing whitespaces and saves file
@@ -154,6 +156,16 @@ set directory=$HOME/tmp
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'airlineish'
 
+" Show invisible chars
+nmap <leader>l :set list!<CR>
+"set listchars=tab:▸\ ,eol:¬
+"set listchars=tab:»\ ,eol:¬
+let &listchars="eol:\u00b6,tab:\u25b8\ "
+"Invisible character colors 
+highlight NonText guifg=#4a4a59
+highlight SpecialKey guifg=#4a4a59
+
+
 " ============================================================================
 " Python IDE Setup
 " ============================================================================
@@ -165,7 +177,8 @@ set laststatus=2
 " Toogle comments
 
 " map <C-_> NERDComToggleComment
-map <C-_> <leader>c<space>gv
+vmap <C-_> <leader>c<space>gv
+nmap <C-_> <leader>c<space>
 
 " Settings for ctrlp
 let g:ctrlp_max_height = 30
@@ -204,3 +217,4 @@ let g:syntastic_style_warning_symbol = ">"
 let g:jedi#popup_on_dot = 0
 
 set viminfo='10,\"100,:20,%,n~/.viminfo
+
