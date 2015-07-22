@@ -3,6 +3,9 @@
 "
 " Vundle plugins
 "
+scriptencoding utf-8
+set encoding=utf-8
+
 set nocompatible
 filetype off
 
@@ -31,7 +34,6 @@ call vundle#end()
 
 
 filetype plugin indent on
-
 
 
 " Automatic reloading of .vimrc
@@ -157,6 +159,16 @@ set directory=$HOME/tmp
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'airlineish'
 
+" Show invisible chars
+nmap <leader>l :set list!<CR>
+"set listchars=tab:▸\ ,eol:¬
+"set listchars=tab:»\ ,eol:¬
+let &listchars="eol:\u00b6,tab:\u25b8\ "
+"Invisible character colors 
+highlight NonText guifg=#4a4a59
+highlight SpecialKey guifg=#4a4a59
+
+
 " ============================================================================
 " Python IDE Setup
 " ============================================================================
@@ -209,3 +221,4 @@ let g:syntastic_python_checkers=['flake8']
 let g:jedi#popup_on_dot = 0
 
 set viminfo='10,\"100,:20,%,n~/.viminfo
+
