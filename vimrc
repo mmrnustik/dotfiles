@@ -173,7 +173,7 @@ nmap <C-_> <leader>c<space>
 
 " Settings for ctrlp
 let g:ctrlp_max_height = 30
-map <Leader>p :CtrlPBuffer<CR>
+noremap p :CtrlPBuffer<CR>
 set wildignore+=*.pyc
 set wildignore+=*.wav
 set wildignore+=*_build/*
