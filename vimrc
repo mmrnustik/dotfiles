@@ -67,7 +67,21 @@ vnoremap <Leader>h :nohl<CR>
 
 
 " <F2> removes trailing whitespaces and saves file
-map <F2> :%s/\s*$//<CR>:w<CR>:nohl<CR>
+function! Preserve(command)
+  " Preparation: save last search, and cursor position.
+  let _s=@/
+  let l = line(".")
+  let c = col(".")
+  " Do the business:
+  execute a:command
+  " Clean up: restore previous search history, and cursor position
+  let @/=_s
+  call cursor(l, c)
+endfunction
+nnoremap <silent> <F2> :call Preserve("%s/\\s\\+$//e")<CR>:w<CR>
+nmap _= :call Preserve("normal gg=G")<CR>
+
+
 " Quicksave command
 " noremap <F2> :update<CR>
 " vnoremap <F2> <C-C>:update<CR>
@@ -164,7 +178,7 @@ nmap <leader>l :set list!<CR>
 "set listchars=tab:▸\ ,eol:¬
 "set listchars=tab:»\ ,eol:¬
 let &listchars="eol:\u00b6,tab:\u25b8\ "
-"Invisible character colors 
+"Invisible character colors
 highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59
 
@@ -222,3 +236,21 @@ let g:jedi#popup_on_dot = 0
 
 set viminfo='10,\"100,:20,%,n~/.viminfo
 
+" Filetype specific indentation
+" Only do this part when compiled with support for autocommands
+if has("autocmd")
+  " Enable file type detection
+  filetype on
+
+  " Syntax of these languages is fussy over tabs Vs spaces
+  autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
+  autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+  " Customisations based on house-style (arbitrary)
+  autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
+
+  " Treat .rss files as XML
+  autocmd BufNewFile,BufRead *.rss setfiletype xml
+endif
