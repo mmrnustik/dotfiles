@@ -113,3 +113,5 @@ fi
 
 export WORKON_HOME=~/.virtualenvs
 . /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+
+export EDITOR=vim
