@@ -50,6 +50,7 @@ set pastetoggle=<F4>
 
 " Mouse and backspace
 set mouse=a  " on OSX press ALT and click
+set ttymouse=xterm2
 set bs=2     " make backspace behave like normal again
 
 
@@ -79,6 +80,7 @@ function! Preserve(command)
   call cursor(l, c)
 endfunction
 nnoremap <silent> <F2> :call Preserve("%s/\\s\\+$//e")<CR>:w<CR>
+inoremap <silent> <F2> <ESC>:call Preserve("%s/\\s\\+$//e")<CR>:w<CR>
 nmap _= :call Preserve("normal gg=G")<CR>
 
 
@@ -254,3 +256,8 @@ if has("autocmd")
   " Treat .rss files as XML
   autocmd BufNewFile,BufRead *.rss setfiletype xml
 endif
+
+set exrc
+
+set secure
+
