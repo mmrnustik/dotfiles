@@ -115,3 +115,7 @@ export WORKON_HOME=~/.virtualenvs
 . /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 
 export EDITOR=vim
+
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"

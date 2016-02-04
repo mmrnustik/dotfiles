@@ -29,6 +29,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'ledger/vim-ledger'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'ibab/vim-snakemake'
 "Plugin 'vundle'
 call vundle#end()
 
@@ -133,10 +134,10 @@ syntax on
 
 " Showing line numbers and length
 set number  " show line numbers
-set tw=79   " width of document (used by gd)
+set tw=100   " width of document (used by gd)
 set nowrap  " don't automatically wrap on load
 set fo-=t   " don't automatically wrap text when typing
-set colorcolumn=80
+set colorcolumn=100
 highlight ColorColumn ctermbg=233
 
 hi CursorLine   cterm=NONE ctermbg=black
